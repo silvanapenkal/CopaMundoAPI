@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,7 +12,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table (name="selecoes")
+@Table (name="SELECOES")
 public class Selecao {
 
     @Id
@@ -26,6 +24,7 @@ public class Selecao {
 
     private LocalDateTime dataCadastro;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "selecao")
     private List<Jogador> jogadores;
 
 }
