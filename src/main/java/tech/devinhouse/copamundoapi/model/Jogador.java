@@ -18,10 +18,10 @@ public class Jogador {
     @Column(name = "ID_JOGADOR")
     private Integer id;
 
-    @Column
+
     private String nome;
 
-    @Enumerated (value = EnumType.STRING)
+    @Enumerated (EnumType.STRING)
     private Posicao posicao;
 
     @ManyToOne(fetch = FetchType.EAGER)
